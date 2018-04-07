@@ -1,0 +1,13 @@
+;;secrets.json file ignore
+esl_chain/secrets.json
+
+;;extensions to ignore
+*.log
+*.pot
+*.pyc
+
+;;directories to ignore
+.idea/
+
+;;sqlite3 file
+esl_chain/*.sqlite3
