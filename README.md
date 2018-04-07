@@ -41,12 +41,12 @@ ESL과 블록체인을 결합한 시스템.
 ### /admin
 관리자 페이지 화면
 
-![/admin](https://user-images.githubusercontent.com/32661341/38454870-47d8bfc4-3aaa-11e8-94b4-9b4a65eae54b.png)
+![/admin](https://user-images.githubusercontent.com/32661341/38454873-4b3c5004-3aaa-11e8-8b6f-c2d01f8d5e01.png)
 
 ### /api/manual
 rest swagger 페이지 화면
 
-![/api/manual](https://user-images.githubusercontent.com/32661341/38454873-4b3c5004-3aaa-11e8-8b6f-c2d01f8d5e01.png)
+![/api/manual](https://user-images.githubusercontent.com/32661341/38454870-47d8bfc4-3aaa-11e8-94b4-9b4a65eae54b.png)
 
 ### /api/example
 RESTful API 예제 화면
