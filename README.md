@@ -37,6 +37,21 @@ ESL과 블록체인을 결합한 시스템.
     1. http://[로컬주소]:8000/admin       << 관리자 페이지
     2. http://[로컬주소]:8000/api/manual  << rest swagger 페이지
     3. http://[로컬주소]:8000/api/example << RESTful API 예제
+    
+### /admin
+관리자 페이지 화면
+
+![/admin](https://user-images.githubusercontent.com/32661341/38454870-47d8bfc4-3aaa-11e8-94b4-9b4a65eae54b.png)
+
+### /api/manual
+rest swagger 페이지 화면
+
+![/api/manual](https://user-images.githubusercontent.com/32661341/38454873-4b3c5004-3aaa-11e8-8b6f-c2d01f8d5e01.png)
+
+### /api/example
+RESTful API 예제 화면
+
+![/api/example](https://user-images.githubusercontent.com/32661341/38454871-48f409b8-3aaa-11e8-8147-9cbf6cad07be.png)
 
 ## Project Structure
 
@@ -53,9 +68,13 @@ ESL과 블록체인을 결합한 시스템.
     └── requirments.txt       // 필요 패키지
 
 
-### Acknowledgments
+## Acknowledgments
 
 *  [프로젝트 디렉토리]\esl_chain\secrets.json 파일은 git으로 관리하지 않음(보안을 위해...  .gitignore에 추가 됨).
 *  [프로젝트 디렉토리]\esl_chain\secrets.json 파일은 manage.py 스크립트가 실행 될 때 자동으로 생성 됨.
 
+## Django & django rest framework Tutorial
+
+* [첫 번째 장고 앱 작성하기, part 1](https://docs.djangoproject.com/ko/2.0/intro/tutorial01/)
+* [Django REST framework Quickstart](http://www.django-rest-framework.org/#quickstart)
 
