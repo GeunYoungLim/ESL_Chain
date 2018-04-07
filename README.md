@@ -53,7 +53,7 @@ ESL과 블록체인을 결합한 시스템.
     └── requirments.txt       // 필요 패키지
 
 
-###Acknowledgments
+### Acknowledgments
 
 *  [프로젝트 디렉토리]\esl_chain\secrets.json 파일은 git으로 관리하지 않음(보안을 위해...  .gitignore에 추가 됨).
 *  [프로젝트 디렉토리]\esl_chain\secrets.json 파일은 manage.py 스크립트가 실행 될 때 자동으로 생성 됨.
