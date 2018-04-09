@@ -9,7 +9,7 @@ if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "esl_chain.settings")
 
     # SECRTET_KEY Generate added by GeunYoung Lim 2018. 04. 08.
-    if os.path.isfile('secret.json') :
+    if not os.path.isfile('secret.json') :
         secrets = {}
         chars = ''.join([string.ascii_letters, string.digits, string.punctuation]).replace('\'', '').replace('"', '').replace('\\', '')
         secrets['SECRET_KEY'] = ''.join([random.SystemRandom().choice(chars) for i in range(50)])
