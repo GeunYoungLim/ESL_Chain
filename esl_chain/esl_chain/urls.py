@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """esl_chain URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,7 +16,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from .views import (ExampleView)
+from .views import (ESLView)
 from rest_framework_swagger.views import get_swagger_view
 
 schema_view = get_swagger_view(title="ESL Chain API")
@@ -25,6 +26,6 @@ urlpatterns = [
 
     #added by GeunYoung Lim 2018. 04. 07
     url(r'^api/manual', schema_view),
-    url(r'^api/example', ExampleView.as_view()),
+    url(r'^api/esl', ESLView.as_view()),
 
 ]
