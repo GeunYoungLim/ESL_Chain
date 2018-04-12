@@ -21,19 +21,19 @@ class ESLView(APIView):
     def put(self, request):
 
         # json 입력값 검증
-        filter = ['id', 'name', 'price', 'pUrl']
+        filter = ['itemId', 'itemName', 'itemPrice', 'itemUrl']
         valid, missing = IsValidJSON(filter, request.data)
         if not valid:
             return Response({'error_msg':'invalid request. you missed ' + missing}, status=status.HTTP_400_BAD_REQUEST)
 
         #상품 ID ( 나중을 위해 )
-        id = request.data['id']
+        itemId = request.data['itenId']
         #상품 이름
-        name = request.data['name']
+        itemName = request.data['itemName']
         #상품 가격
-        price = request.data['price']
+        itemPrice = request.data['itemPrice']
         #상품 URL
-        pUrl = request.data['pUrl']
+        itemUrl = request.data['itemUrl']
 
 
 
