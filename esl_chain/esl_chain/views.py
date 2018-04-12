@@ -27,7 +27,7 @@ class ESLView(APIView):
             return Response({'error_msg':'invalid request. you missed ' + missing}, status=status.HTTP_400_BAD_REQUEST)
 
         #상품 ID ( 나중을 위해 )
-        itemId = request.data['itenId']
+        itemId = request.data['itemId']
         #상품 이름
         itemName = request.data['itemName']
         #상품 가격

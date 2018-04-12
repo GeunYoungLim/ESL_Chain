@@ -30,7 +30,9 @@ SECRET_KEY = load_secret_key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#테스트용 옵션 '*'
+#실 서버에서는 금지
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
