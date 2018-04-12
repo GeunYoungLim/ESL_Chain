@@ -2,9 +2,9 @@
 
 
 # json 데이터를 검사하는 함수
-def IsValidJSON( list , json_data ):
+def IsValidJSON( filter , json_data ):
     missing = ''
-    for key_element in list:
+    for key_element in filter:
         if not key_element in json_data:
             missing += key_element + ','
     if not 0 == len(missing):
