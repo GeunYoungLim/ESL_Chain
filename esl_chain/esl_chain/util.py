@@ -3,6 +3,7 @@ import qrcode
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
+from django.conf import settings
 
 # json 데이터를 검사하는 함수
 def IsValidJSON( filter , json_data ):
@@ -19,6 +20,7 @@ def IsValidJSON( filter , json_data ):
 
 
 def LabelMaker(itemId, itemName, itemPrice, itemUrl):
+    ESL_CHAIN_ROOT = settings.BASE_DIR + '/esl_chain'
     THRESHOLD_VALUE = 200
     qr = qrcode.QRCode(
     version = 1,
@@ -30,17 +32,18 @@ def LabelMaker(itemId, itemName, itemPrice, itemUrl):
     qr.make(fit=True)
     qrimg = qr.make_image()
 
-    img = Image.open("./img_esl/origin.bmp")
+    img = Image.open(ESL_CHAIN_ROOT+"/img_esl/origin.bmp")
     draw = ImageDraw.Draw(img)
 
-    name_font = ImageFont.truetype("./img_esl/malgunbd.ttf", 32)
-    price_font = ImageFont.truetype("./img_esl/ds-digit.ttf", 60)
+    name_font = ImageFont.truetype(ESL_CHAIN_ROOT+"/img_esl/malgunbd.ttf", 32)
+    price_font = ImageFont.truetype(ESL_CHAIN_ROOT+"/img_esl/ds-digit.ttf", 60)
 
     draw.text((12, 6), itemName, font=name_font)
     draw.text((16, 60), itemPrice, font=price_font)
 
     img.paste(qrimg,(189, 15))
-
-    img.save("./img_esl/%s.bmp" % itemId)
+    imgp = ESL_CHAIN_ROOT + "/img_esl/%s.bmp" % itemId
+    print(imgp)
+    img.save(imgp)
 
     return itemId

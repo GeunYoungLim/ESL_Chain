@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 
 import json
+from django.shortcuts import render
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.views import Response
 from rest_framework.parsers import JSONParser
-from .util import IsValidJSON
+from .util import IsValidJSON, LabelMaker
+
+def MainView(request) :
+    return render(request, 'esl_chain/main.html')
 
 # added by GeunYoung Lim 2018. 04. 07
 class ESLView(APIView):
@@ -36,5 +40,6 @@ class ESLView(APIView):
         itemUrl = request.data['itemUrl']
 
 
+        LabelMaker(itemId, itemName, itemPrice, itemUrl)
 
         return Response({'received data': request.data })

@@ -16,13 +16,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from .views import (ESLView)
+from .views import (ESLView,
+                    MainView,)
 from rest_framework_swagger.views import get_swagger_view
 
 schema_view = get_swagger_view(title="ESL Chain API")
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^main/$', MainView, name='main'),
 
     #added by GeunYoung Lim 2018. 04. 07
     url(r'^api/manual', schema_view),

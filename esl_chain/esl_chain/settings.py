@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for esl_chain project.
 
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     #added by GeunYoung Lim 2018. 04. 07
     'rest_framework',
     'rest_framework_swagger',
+    'esl_chain',
 ]
 
 MIDDLEWARE = [

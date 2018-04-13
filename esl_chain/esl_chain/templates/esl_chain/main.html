@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<body>
+<h1>ESL Chain</h1>
+<script>
+    function submit()
+    {
+        $.ajax({
+            url: '/api/esl',
+            type: 'PUT',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                "itemId": $("#itemId").val(),
+                "itemName": $("#itemName").val(),
+                "itemPrice": $("#itemPrice").val(),
+                "itemUrl": $("#itemUrl").val()
+            }),
+            success: function (data) {
+                alert("ESL 갱신 완료.")
+            }
+        });
+    }
+
+</script>
+<div class="input">
+    <input type="hidden" id="itemId" name="itemId" value="1">
+    제품명 :
+    <input type="text" placeholder="제품명을 입력하세요." id="itemName" name="itemName">
+    가격 :
+    <input type="text" placeholder="가격을 입력하세요."  id="itemPrice" name="itemPrice" >
+    QR코드 :
+    <input type="text" placeholder="QR코드를 등록할 URL을 입력해주세요." id="itemUrl" name="itemUrl" >
+    <input type="reset">
+    <input type="submit" onclick="submit()">
+</div>
+
+
+</body>
+</html>
