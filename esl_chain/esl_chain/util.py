@@ -38,8 +38,8 @@ def LabelMaker(itemId, itemName, itemPrice, itemUrl):
     name_font = ImageFont.truetype(ESL_CHAIN_ROOT+"/img_esl/malgunbd.ttf", 32)
     price_font = ImageFont.truetype(ESL_CHAIN_ROOT+"/img_esl/ds-digit.ttf", 60)
 
-    draw.text((12, 6), itemName, font=name_font)
-    draw.text((16, 60), itemPrice, font=price_font)
+    draw.text((12, 6), str(itemName), font=name_font)
+    draw.text((16, 60), str(itemPrice), font=price_font)
 
     img.paste(qrimg,(189, 15))
     imgp = ESL_CHAIN_ROOT + "/img_esl/%s.bmp" % itemId
