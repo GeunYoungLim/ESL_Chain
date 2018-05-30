@@ -18,7 +18,6 @@
     font-size: 30px;
     font-weight: bold;
     padding: 20px 0px;
-
     border-bottom: #2A3542;
     border-style: solid;
 
@@ -26,6 +25,9 @@
 .admin, .password, .forget{
     display: block;
     margin:30px
+}
+.admin{
+    font-weight: bolder;
 }
 .forget{
     font-size: 10px;
@@ -38,4 +40,7 @@
     border:1px solid #2A3542;
     position: absolute;
     bottom: 0px;
+}
+.button:hover{
+    cursor:pointer;
 }
