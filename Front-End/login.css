@@ -8,7 +8,8 @@
     top: 200px;
     width:300px;
     height: 300px;
-    border:2px solid #2A3542;
+    border:3px solid #2A3542;
+    border-radius: 10px;
     background-color: white;
 }
 .login__title{
@@ -18,16 +19,17 @@
     font-size: 30px;
     font-weight: bold;
     padding: 20px 0px;
-    border-bottom: #2A3542;
-    border-style: solid;
+
 
 }
 .admin, .password, .forget{
     display: block;
     margin:30px
 }
+
 .admin{
     font-weight: bolder;
+
 }
 .forget{
     font-size: 10px;
@@ -35,9 +37,10 @@
 .button{
     background-color: #2A3542;
     color:white;
-    width:298px;
+    width:294px;
     height:40px;
     border:1px solid #2A3542;
+    border-radius: 1px;
     position: absolute;
     bottom: 0px;
 }
