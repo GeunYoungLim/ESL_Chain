@@ -1,0 +1,9 @@
+header.top__menu  {
+    display: flex;
+    flex-direction: row;
+}
+
+.input{
+    display: flex;
+
+}

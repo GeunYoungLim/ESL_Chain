@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ESL admin page</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+ <header class="top__menu">
+     <div class="top__menu--logo">
+         ESL_admin_page
+     </div>
+     <div class="my__page">
+         <i class="fas fa-user">user page</i>
+     </div>
+     <div class="log__out">
+         <i class="fas fa-sign-out-alt">log out</i>
+     </div>
+ </header>
+<nav class="side__bar">
+    <div class="bar__1">product</div>
+    <div class="bar__2">product list</div>
+    <div class="bar__3">product add</div>
+    <div class="bar__4">Dashboard</div>
+    <div class="bar__5">comment ads</div>
+</nav>
+ <div class="input">
+     <input type="hidden" class="itemId" name="itemId" value="1">
+     제품명 :
+     <input type="text" placeholder="제품명을 입력하세요." class="itemName" >
+     가격 :
+     <input type="text" placeholder="가격을 입력하세요."  class="itemPrice" >
+     QR코드 :
+     <input type="text" placeholder="QR코드를 등록할 URL을 입력해주세요." class="itemUrl"  >
+     <input type="reset" class="reset">
+     <input type="submit" onclick="submit()" class="submit">
+ </div>
+
+</body>
+</html>
