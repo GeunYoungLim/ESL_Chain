@@ -1,6 +1,12 @@
 header.top__menu  {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+
+
+}
+.my__page i, .log__out i{
+
+    text-align: right;
 }
 
 .input{
