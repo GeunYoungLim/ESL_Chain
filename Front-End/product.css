@@ -22,8 +22,7 @@
 .side__bar  .bar__item {
     padding: 20px 20px;
     margin : 20px 0px;
-    border-style: solid;
-    border-width: 2px;
+
 }
 .input{
     display:inline-block;
@@ -32,9 +31,6 @@
 
 }
 .input2 {
-
-    border-style: solid;
-    border-width:2px;
     position: absolute;
     top:-200px;
     left:20px;
@@ -44,8 +40,6 @@
 }
 .view__image{
     position: absolute;
-    border-style: solid;
-    border-width:2px;
     left:20px;
     width:1000px;
     height:500px;
