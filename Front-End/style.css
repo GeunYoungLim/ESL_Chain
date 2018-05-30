@@ -2,4 +2,6 @@
 @import "reset.css";
 @import "product.css";
 @import "global.css";
-@import "product._list.css";
+@import "product_list.css";
+@import "Dashboard.css";
+@import "comment.css";
