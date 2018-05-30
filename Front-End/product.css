@@ -3,7 +3,7 @@
     justify-content: space-between;
     background-color: white;
     height:50px;
-    padding:0px 10px
+    padding:10px 10px
 }
 .top__menu--logo{
     font-size: 30px;
@@ -27,4 +27,26 @@
 }
 .input{
     display:inline-block;
+    height:20px;
+    position: relative;
+
+}
+.input2 {
+
+    border-style: solid;
+    border-width:2px;
+    position: absolute;
+    top:-200px;
+    left:20px;
+    width:1000px;
+    height:300px;
+
+}
+.view__image{
+    position: absolute;
+    border-style: solid;
+    border-width:2px;
+    left:20px;
+    width:1000px;
+    height:500px;
 }
