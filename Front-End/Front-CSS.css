@@ -1,15 +1,30 @@
-header.top__menu  {
+.top__menu  {
     display: flex;
     justify-content: space-between;
-
-
+    background-color: white;
+    height:50px;
+    padding:0px 10px
 }
-.my__page i, .log__out i{
-
-    text-align: right;
+.top__menu--logo{
+    font-size: 30px;
+    font-weight: bolder;
 }
-
+.side__bar {
+    background-color: #2A3542;
+    color:white;
+    width: 15%;
+    height: 1000px;
+    padding: 20px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    display:inline-block;
+}
+.side__bar > .bar__item {
+    padding: 20px 20px;
+    margin : 20px 0px;
+    border-style: solid;
+    border-width: 2px;
+}
 .input{
-    display: flex;
-
+    display:inline-block;
 }
