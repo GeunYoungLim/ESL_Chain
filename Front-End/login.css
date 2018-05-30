@@ -1,0 +1,41 @@
+.login__wrapper {
+    position: relative;
+}
+
+.login__wrapper--layout {
+    position: absolute;
+    left:40%;
+    top: 200px;
+    width:300px;
+    height: 300px;
+    border:2px solid #2A3542;
+    background-color: white;
+}
+.login__title{
+    text-align: center;
+    background-color: #2A3542;
+    color:white;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px 0px;
+
+    border-bottom: #2A3542;
+    border-style: solid;
+
+}
+.admin, .password, .forget{
+    display: block;
+    margin:30px
+}
+.forget{
+    font-size: 10px;
+}
+.button{
+    background-color: #2A3542;
+    color:white;
+    width:298px;
+    height:40px;
+    border:1px solid #2A3542;
+    position: absolute;
+    bottom: 0px;
+}
