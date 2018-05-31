@@ -1,6 +1,7 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -12,20 +13,21 @@
     <script src="ESLProductManager.js"></script>
     <script>
         function authRequest () {
-            var web3 = new Web3(Web3.providers.HttpProvider("http://49.236.137.164:8545"));
+            var web3 = new Web3(new Web3.providers.HttpProvider("http://49.236.137.164:8545"));
             var manager = web3.eth.contract(JSON.parse(ESLProductManagerAbi)).at("0x90dd5500ed3882a936d11da3094d6f67812b1d48");
 
             try {
                 var password = document.getElementById("input_password");
                 password = password.value;
                 var account = web3.eth.accounts[0];
-                web3.personal.unlockAccount(account, "1234", 0);
+                web3.personal.unlockAccount(account, password, 0);
                 alert("로그인 성공!");
             } catch (e) {
                 alert("로그인 실패: " + e);
             }
         }
     </script>
+
 </head>
 <body>
     <div class="login__wrapper">
