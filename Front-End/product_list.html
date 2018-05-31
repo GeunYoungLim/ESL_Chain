@@ -2,223 +2,107 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ESL admin page</title>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
     <script src="ESLProductManager.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-<script>
-  var web3 = new Web3(new Web3.providers.HttpProvider("http://49.236.137.164:8545"));
-  var manager = web3.eth.contract(JSON.parse(ESLProductManagerAbi)).at("0x90dd5500ed3882a936d11da3094d6f67812b1d48");
-
-  var accounts = web3.eth.accounts[0];
-  var result = web3.personal.unlockAccount(web3.eth.accounts[0], "1234", 0);
-
-  var updateEvent = manager.updateProductEvent({}, {fromBlock:0, toBlock: 'lastest'})
-  updateEvent.watch(function(error, result){
-    if (error) {
-      //에러 처리.
-        return;
-    }
-    product = result.args;
-    //상품 아이디
-    itemId = product["id"]["c"][0];
-    //상품 이름.
-    itemName = product["itemName"];
-    //상품 가격.
-    itemPrice = product["itemPrice"];
-    //상품 URL.
-    itemURL = product["itemURL"];
-    alert(product + '가 추가되었습니다.');
-
-
-  });
-
-  var newProductEvent = manager.newProductEvent({}, {fromBlock:0, toBlock: 'lastest'})
-  newProductEvent.watch(function(error, result){
-    if (error) {
-        //에러처리
-    }
-    product = result.args;
-    //상품 아이디
-    itemId = product["id"]["c"][0];
-    //상품 이름.
-    itemName = product["itemName"];
-    //상품 가격.
-    itemPrice = product["itemPrice"];
-    //상품 URL.
-    itemURL = product["itemURL"];
-
-
-    alert(product + '업데이트 되었습니다.');
-  });
-
-  var count = manager.getProductCount.call()["c"][0];
-
-  for (i = 0; i< count; i++){
-
-    product = manager.getProductById(i);
-    //상품 아이디
-    itemId = product["id"]["c"][0];
-    //상품 이름.
-    itemName = product["itemName"];
-    //상품 가격.
-    itemPrice = product["itemPrice"];
-    //상품 URL.
-    itemURL = product["itemURL"];
-
-    //추가 하기.
-  }
-
-</script>
+    <script src="addjs.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+    <header>
+        <a href="product_list.html">
+        <div class="top__menu--logo">
+            ESL Admin Page
+        </div>
+        </a>
+        <div class="my__page">
+            <i class="fas fa-user">user page</i>
+            <i class="fas fa-sign-out-alt">log out</i>
+        </div>
+    </header>
+    <nav class="side__bar">
+        <a href="product_list.html">
+        <div class="bar__item">product list</div>
+        </a>
+        <a href="Dashboard.html">
+        <div class="bar__item">Dashboard</div>
+        </a>
+        <a href="comment.html">
+        <div class="bar__item">comment</div>
+        </a>
+    </nav>
 
-<header class="top__menu">
-    <a href="product_list.html">
-    <div class="top__menu--logo">
-        ESL Admin Page
+    <div class="product__list--border">
+        <a href="product_list.html">
+        <span>PRODUCT LIST</span>
+        </a>
+    <div class="product__plus">
+        <a href="product.html">
+            <i class="fas fa-plus "> Add</i>
+        </a>
     </div>
-    </a>
-    <div class="my__page">
-        <i class="fas fa-user">user page</i>
-        <i class="fas fa-sign-out-alt">log out</i>
+        <div id="container">
+            <div align="right">
+                <!-- Login 검증 -->
+                <!-- jstl의 if문은 else가 없어서 따로 검증해야함. -->
+                <if test="${id != null}">
+
+                </if>
+                <if test="${id == null}">
+
+                </if>
+            </div>
+
+            <div id="list">
+                <b>게시판 </b>
+            </div>
+
+            <div>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th width="10%">번호</th>
+                        <th width="50%">제품명</th>
+                        <th width="10%">작성자</th>
+                        <th width="20%">작성일</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <forEach var="article" items="${articles}" varStatus="status">
+                        <tr>
+                            <td>${article.articleNumber}</td>
+                            <td id="title">
+                                <if test="${article.depth > 0}">
+                                    &nbsp;&nbsp;
+                                </if>
+                                <a href="/bbs/content.bbs?articleNumber=${article.articleNumber}&pageNum=${pageNum}">${article.title}</a>
+
+                            </td>
+                            <td>${article.id}</td>
+                            <td>${article.writeDate}</td>
+                            <td>${article.hit}</td>
+                        <tr>
+                    </forEach>
+                    </tbody>
+                </table>
+
+                <!-- Paging 처리 -->
+                <div id="paging">
+                    ${pageCode}
+                </div>
+            </div>
+        </div>
     </div>
-</header>
-<nav class="side__bar">
-    <a href="product_list.html">
-    <div class="bar__item">product list</div>
-    </a>
-    <a href="Dashboard.html">
-    <div class="bar__item">Dashboard</div>
-    </a>
-    <a href="comment.html">
-    <div class="bar__item">comment</div>
-    </a>
-</nav>
-
-<div class="product__list--border">
-    <a href="product_list.html">
-    <span>PRODUCT LIST</span>
-    </a>
-<div class="product__plus">
-    <a href="product.html">
-        <i class="fas fa-plus "> Add</i>
-    </a>
-</div>
-
-    <div class="product__list--table">
-    <table class="product__list--table2">
-        <thead>
-            <tr>
-                <th>NAME</th>
-                <th>DESCRIPTION</th>
-                <th>EXPIRATION DATE</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-
-        </tbody>
-    </table>
-    </div>
-</div>
-
-
 </body>
 </html>
