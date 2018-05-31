@@ -2,8 +2,9 @@
     display: flex;
     justify-content: space-between;
     background-color: white;
-    height:50px;
-    padding:10px 10px;
+    height:auto;
+    padding:20px;
+
 }
 .top__menu--logo{
     font-size: 30px;
@@ -13,7 +14,7 @@
     background-color: #2A3542;
     color:white;
     width: 15%;
-    height: 1000px;
+    height: auto;
     padding: 20px 20px;
     font-size: 15px;
     font-weight: bold;
@@ -24,6 +25,7 @@
     margin : 20px 0px;
     border-style: solid;
     border-width: 2px;
+
 }
 .product__plus{
     font-weight: bold;
@@ -36,6 +38,7 @@
     background-color: #2A3542;
     padding:10px;
     border-radius: 8px;
+
 }
 .product__list--border  span{
     font-size: 30px;
@@ -52,8 +55,6 @@
     left:120px;
     width:1000px;
     padding:20px;
-
-
 }
 .product__list--table{
     position: absolute;
@@ -75,6 +76,14 @@
 .product__list--table2 thead th {
     background-color: #2A3542;
     color:white;
+
 }
-
-
+#line-chart {
+    position: absolute;
+    top:50px;
+    bottom: 0;
+    left:250px;
+    right:0;
+    max-width:1200px;
+    overflow: hidden;
+}
