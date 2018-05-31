@@ -10,6 +10,9 @@
     font-size: 30px;
     font-weight: bolder;
 }
+.my__page{
+    cursor:pointer;
+}
 .side__bar {
     background-color: #2A3542;
     color:white;

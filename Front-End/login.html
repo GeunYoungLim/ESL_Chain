@@ -8,6 +8,24 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>administrator</title>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="ESLProductManager.js"></script>
+    <script>
+        function authRequest () {
+            var web3 = new Web3(Web3.providers.HttpProvider("http://49.236.137.164:8545"));
+            var manager = web3.eth.contract(JSON.parse(ESLProductManagerAbi)).at("0x90dd5500ed3882a936d11da3094d6f67812b1d48");
+
+            try {
+                var password = document.getElementById("input_password");
+                password = password.value;
+                var account = web3.eth.accounts[0];
+                web3.personal.unlockAccount(account, "1234", 0);
+                alert("로그인 성공!");
+            } catch (e) {
+                alert("로그인 실패: " + e);
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="login__wrapper">
@@ -15,11 +33,11 @@
             <form class="login__login">
                 <p class="login__title">Administrator</p>
                 <p class="admin">비밀번호를 입력하세요 :)</p>
-                <input type="password" placeholder="Password" class="password" />
+                <input id="input_password" type="password" placeholder="Password" class="password" />
                 <a href="#" class="forget">
                     <i class="fas fa-exclamation-triangle"> Forgot your password?</i>
                 </a>
-                <button class="button">
+                <button class="button" onclick="authRequest()">
                     <i class="fas fa-sign-in-alt"></i>
                     <span class="login__state">Login</span>
                 </button>
