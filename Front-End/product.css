@@ -28,6 +28,10 @@
     display:inline-block;
     height:20px;
     position: relative;
+    color:white;
+    width:500px;
+
+
 
 }
 .input2 {
@@ -37,10 +41,52 @@
     width:1000px;
     height:300px;
 
+
+
 }
 .view__image{
     position: absolute;
     left:20px;
     width:1000px;
-    height:500px;
+    height:400px;
+    top:250px;
+    border-radius: 5px;
+    border:1px solid white;
+    background-color: white;
+}
+
+.input > .input2 p {
+    text-align: center;
+    display: block;
+    width:277px;
+    font-weight: bolder;
+    font-size: 20px;
+    margin:20px 5px;
+    padding:5px;
+    background-color: #2A3542;
+    border-radius: 5px;
+    border: 1px solid #2A3542;
+}
+.itemId, .itemName, .itemPrice , .itemUrl{
+    font-weight: bolder;
+    font-size: 20px;
+    padding:5px;
+    background-color: #2A3542;
+    border-radius: 5px;
+    background-color: white;
+    margin:0;
+    text-align: center;
+}
+.reset, .submit {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+    background-color: #2A3542;
+    border-radius: 5px;
+    border: 1px solid #2A3542;
+    color:white;
+    padding: 5px;
+    margin:10px 0;
+    display: block;
+
 }
