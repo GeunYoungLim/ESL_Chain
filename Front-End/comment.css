@@ -25,3 +25,51 @@
     border-style: solid;
     border-width: 2px;
 }
+.header__top {
+    width:560px;
+    position: absolute;
+    left:300px;
+    top:100px;
+
+}
+.header__header  p {
+    display: inline-block;
+    border: 0 solid #2A3542;
+    border-radius: 5px;
+    padding:10px;
+    margin:0 10px;
+    background-color: #2A3542;
+    color:white;
+}
+.header__write  p {
+    display: inline-block;
+    margin:0 10px;
+    border: 0 solid #2A3542;
+    border-radius: 5px;
+    padding:10px;
+    background-color: #2A3542;
+    color:white;
+
+
+}
+.small_text {
+    border-radius:5px;
+    margin:10px;
+    width:550px;
+    height:30px;
+}
+.big_text {
+    border-radius:5px;
+    margin:10px;
+    width:550px;
+    height:330px;
+}
+.btn {
+    display: inline-block;
+    float:right;
+    border: 0 solid #2A3542;
+    border-radius: 5px;
+    padding:10px;
+    background-color: #2A3542;
+    color:white;
+}
