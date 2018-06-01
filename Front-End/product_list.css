@@ -16,37 +16,45 @@
 .side__bar {
     background-color: #2A3542;
     color:white;
-    width: 15%;
-    height: auto;
-    padding: 20px 20px;
+
     font-size: 15px;
     font-weight: bold;
     display:inline-block;
+    width:250px;
+
 }
-.side__bar  .bar__item {
+
+.bar__item {
     padding: 20px 20px;
     margin : 20px 0px;
     border-style: solid;
     border-width: 2px;
+    width:190px;
 
 }
 .product__plus{
     font-weight: bold;
     font-size: 15px;
-    display: inline-block;
+    /*display: inline-block;*/
+    display: none;
     position: absolute;
     right:0;
     bottom:25px;
     color: white;
     background-color: #2A3542;
-    padding:10px;
+    padding:5px;
     border-radius: 8px;
 
+}
+.product__list--border{
+    width:210px;
 }
 .product__list--border  span{
     font-size: 30px;
     padding: 20px;
     display: inline-block;
+    position: relative;
+    left:120px;
 }
 .product__list--border{
     text-align: center;
@@ -56,12 +64,12 @@
     position: relative;
     top:-200px;
     left:120px;
-    width:1000px;
+    width:600px;
     padding:20px;
 }
 .product__list--table{
     position: absolute;
-    width:1000px;
+    width:800px;
     height:1000px;
     padding:10px;
 
@@ -74,7 +82,7 @@
     background-color: #f8f8f8;
     border: 1px solid #ddd;
     padding: 10px;
-    width:980px;
+    width:800px;
 }
 .product__list--table2 thead th {
     background-color: #2A3542;
@@ -89,4 +97,19 @@
     right:0;
     max-width:1200px;
     overflow: hidden;
+}
+.finish{
+    margin-top:50px;
+}
+.re{
+    font-weight: bold;
+    font-size: 15px;
+    display: inline-block;
+    position: absolute;
+    right:10px;
+    color: white;
+    background-color: #2A3542;
+    padding:5px;
+    border-radius: 8px;
+
 }

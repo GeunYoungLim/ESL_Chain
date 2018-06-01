@@ -7,7 +7,21 @@
     <script src="ESLProductManager.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script src="addjs.js"></script>
+    <!--<script src="addjs.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script>
+        function clickelement(e){
+            var text = e.textContent;
+            e.onclik = null;
+            $("#" + e.id).text('');
+            $("#" + e.id).append("<input type='text' value='"+ text +"'></input>");
+
+        }
+    </script>
+
+
 </head>
 
 <body>
@@ -49,115 +63,111 @@
 
     <div class="product__list--table">
         <table class="product__list--table2">
-            <thead>
             <tr>
-                <th>NAME</th>
-                <th>DESCRIPTION</th>
-                <th>EXPIRATION DATE</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
+                <th>ProductName</th>
+                <th>Price</th>
+                <th>IP</th>
             </tr>
             <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
+                <td id="0-name">Loading</td>
+                <td id="0-price">Loading</td>
+                <td id="0-ip">Loading</td>
             </tr>
             <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
-            </tr>
-            <tr>
-                <td>내용</th>
-                <td>내용</th>
-                <td>내용</th>
+                <td id="1-name">Loading</td>
+                <td id="1-price">Loading</td>
+                <td id="1-ip">Loading</td>
             </tr>
 
-            </tbody>
         </table>
+        <table class="product__list--table2">
+            <tr >
+                <th>수정할 제품명</th>
+                <th>수정할 가격</th>
+                <th>수정할 IP</th>
+            </tr>
+            <div class="finish">
+            <tr >
+                <td><input id="mod_name" type="text"></td>
+                <td><input id="mod_price" type="text"></td>
+                <td><input id="mod_ip" type="text"></td>
+            </tr>
+            </div>
+        </table>
+        <button class = "re" onclick="modify()">수정하기</button>
     </div>
 </div>
+<script>
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://49.236.137.164:8545"));
+    var manager = web3.eth.contract(JSON.parse(ESLProductManagerAbi)).at("0x48f38a4cc9ab0d270466535dfa3f28b8164b8192");
+
+    var accounts = web3.eth.accounts[0];
+
+    var result = web3.personal.unlockAccount(web3.eth.accounts[0], "1234", 0);
+
+    var blockCount = web3.eth.blockNumber;
+
+    var updateEvent = manager.updateProductEvent({}, {fromBlock:blockCount, toBlock: 'lastest'})
+    updateEvent.watch(function(error, result){
+        if (error) {
+            //에러 처리.
+            return;
+        }
+        product = result.args;
+        itemId = product["id"]["c"][0];
+        itemName = product["itemName"];
+        itemPrice = product["itemPrice"];
+        itemURL = product["itemURL"];
+        itemIP = product["itemIP"];
+        itemId  -= 1;
+        console.log("update id:" + itemId);
+        a = '#' + String(itemId) + "-" + "name";
+        $(a).text(itemName);
+        $('#' + String(itemId) + "-" + "price").text(itemPrice);
+        $('#' + String(itemId) + "-" + "ip").text(itemIP);
+
+        $.ajax({
+            url: "http://192.168.43.234/itemId/"+ itemId + "/itemName/" + itemName + "/itemPrice/" + itemPrice + "/ip/" +itemIP,
+            type: "GET",
+            // cache:false,
+            // timeout : 100000,
+            // data: {"itemId": String(itemId),"itemName":itemName,"itemPrice": itemPrice, "itemURL": itemURL, "ip": itemIP},
+            // success: function(data) {
+            //   alert('success');
+            // }
+        });
+
+    });
+
+    var count = manager.getProductCount.call()["c"][0];
+
+    for (i = 0; i< count; i++){
+        console.log("id :" + i)
+        product = manager.getProductById(i);
+        itemId = product[0]["c"][0];
+        itemName = product[1];
+        itemPrice = product[2];
+        itemURL = product[3];
+        itemIP = product[4];
+        a = '#' + String(i) + "-" + "name";
+        $(a).text(itemName);
+        $('#' + String(i) + "-" + "price").text(itemPrice);
+        $('#' + String(i) + "-" + "ip").text(itemIP);
+        console.log(product);
+    }
+
+    function modify() {
+        var mod_name = $("#mod_name").val();
+        var mod_price = $("#mod_price").val();
+        var mod_ip = $("#mod_ip").val();
+
+        manager.updateProduct.sendTransaction(mod_name, mod_price, "", mod_ip,
+        {from: web3.eth.accounts[0], gas: 4000000});
+        location.reload();
+    }
+</script>
 
 
 </body>
+
 </html>
